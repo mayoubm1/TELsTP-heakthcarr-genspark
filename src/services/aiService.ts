@@ -122,7 +122,7 @@ export const aiService = {
    * Generate simulated AI response (placeholder)
    * TODO: Replace with actual AI API integration
    */
-  generateSimulatedResponse(partnerId: string, userMessage: string): string {
+  generateSimulatedResponse(partnerId: string, _userMessage: string): string {
     const responses: Record<string, string[]> = {
       mistral: [
         "As a biosciences specialist, I can help you understand this concept better. In molecular biology, this process involves...",

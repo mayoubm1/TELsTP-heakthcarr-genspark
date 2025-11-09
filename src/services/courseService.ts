@@ -104,10 +104,10 @@ export const courseService = {
 
     if (error) throw error;
 
-    return data.map(enrollment => ({
+    return data.map((enrollment: any) => ({
       ...enrollment.course,
       progress: enrollment.progress,
-      instructor: enrollment.course.instructor || { id: '', name: 'Unknown' },
+      instructor: enrollment.course?.instructor || { id: '', name: 'Unknown' },
     })) as Course[];
   },
 
