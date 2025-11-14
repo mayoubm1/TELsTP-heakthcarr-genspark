@@ -28,23 +28,32 @@ export const authService = {
         data: {
           name,
           role: 'student',
+          student_id: studentId,
+          program,
         },
       },
     });
 
     if (authError) throw authError;
 
-    // Update user profile with additional info
+    // Try to upsert user profile if database is set up
+    // This is optional - the trigger should handle it automatically
     if (authData.user) {
-      const { error: profileError } = await supabase
-        .from('users')
-        .update({
-          student_id: studentId,
-          program,
-        })
-        .eq('id', authData.user.id);
-
-      if (profileError) throw profileError;
+      try {
+        await supabase
+          .from('users')
+          .upsert({
+            id: authData.user.id,
+            email,
+            name,
+            role: 'student',
+            student_id: studentId,
+            program,
+          });
+      } catch (profileError) {
+        // Log but don't fail - trigger might handle this
+        console.warn('Profile upsert skipped (OK if database not ready):', profileError);
+      }
     }
 
     return authData;

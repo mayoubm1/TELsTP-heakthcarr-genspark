@@ -50,31 +50,52 @@ export default function RegisterPage() {
     setLoading(true);
 
     try {
-      // Sign up user
+      // Sign up user with metadata
       const { data: authData, error: authError } = await supabase.auth.signUp({
         email: formData.email,
         password: formData.password,
+        options: {
+          data: {
+            name: formData.name,
+            role: 'student',
+            student_id: formData.studentId,
+            program: formData.program,
+          },
+        },
       });
 
       if (authError) throw authError;
 
-      // Create user profile
-      if (authData.user) {
-        const { error: profileError } = await supabase.from('users').insert({
-          id: authData.user.id,
-          email: formData.email,
-          name: formData.name,
-          role: 'student',
-          student_id: formData.studentId,
-          program: formData.program,
-        });
-
-        if (profileError) throw profileError;
+      // Check if user was created
+      if (!authData.user) {
+        throw new Error('User registration failed. Please try again.');
       }
 
-      navigate('/dashboard');
+      // Try to update user profile if database is set up
+      // This is optional and will work even if tables don't exist yet
+      if (authData.user) {
+        try {
+          await supabase.from('users').upsert({
+            id: authData.user.id,
+            email: formData.email,
+            name: formData.name,
+            role: 'student',
+            student_id: formData.studentId,
+            program: formData.program,
+          });
+        } catch (profileError) {
+          // Log error but don't fail - the trigger might handle this
+          console.warn('Profile update failed (this is OK if database not set up yet):', profileError);
+        }
+      }
+
+      // Show success message
+      setError('');
+      alert('Account created successfully! Please check your email to verify your account.');
+      navigate('/login');
     } catch (error: any) {
-      setError(error.message || 'Failed to create account');
+      console.error('Registration error:', error);
+      setError(error.message || 'Failed to create account. Please try again.');
     } finally {
       setLoading(false);
     }

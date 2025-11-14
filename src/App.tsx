@@ -12,6 +12,7 @@ import CourseDetailPage from './pages/CourseDetailPage';
 import AIPartnerPage from './pages/AIPartnerPage';
 import VirtualLabPage from './pages/VirtualLabPage';
 import AdminPage from './pages/AdminPage';
+import TestConnectionPage from './pages/TestConnectionPage';
 
 // Layouts
 import MainLayout from './components/layouts/MainLayout';
@@ -78,6 +79,9 @@ function App() {
   return (
     <Router>
       <Routes>
+        {/* Test Page - Publicly accessible */}
+        <Route path="/test-connection" element={<TestConnectionPage />} />
+
         {/* Auth Routes */}
         <Route element={<AuthLayout />}>
           <Route path="/login" element={user ? <Navigate to="/dashboard" /> : <LoginPage />} />
