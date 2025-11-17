@@ -2,9 +2,8 @@ import { createClient } from '@supabase/supabase-js';
 
 // These should be replaced with actual Supabase project credentials
 // For now, using placeholder values - will be configured in environment variables
-const supabaseUrl = "https://uvwahahpvmzuawwshoui.supabase.co";
-const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV2d2FoYWhwdm16dWF3d3Nob3VpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMzMzUwNzAsImV4cCI6MjA3ODkxMTA3MH0.9omYRmzog9gzNN-s7SaKgB6OuPwfq9yJDDVB1q3DHZE
-";
+const supabaseUrl ="https://uvwahahpvmzuawwshoui.supabase.co";
+const supabaseAnonKey ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV2d2FoYWhwdm16dWF3d3Nob3VpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMzMzUwNzAsImV4cCI6MjA3ODkxMTA3MH0.9omYRmzog9gzNN-s7SaKgB6OuPwfq9yJDDVB1q3DHZE";
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 // Database types
