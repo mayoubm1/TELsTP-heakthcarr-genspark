@@ -6,9 +6,9 @@
   "installCommand": "npm install",
   "devCommand": "npm run dev",
   "env": {
-    "VITE_SUPABASE_URL": "https://vrfyjirddfdnwuffzqhb.supabase.co",
-    "VITE_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZyZnlqaXJkZGZkbnd1ZmZ6cWhiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk5MDYwNjMsImV4cCI6MjA3NTQ4MjA2M30.glgJwI2yIqUFG8ZtWJk2esxGdXw6nFp5eQ8aANbRAvE",
-    "VITE_API_URL": "https://vrfyjirddfdnwuffzqhb.supabase.co/rest/v1"
+    "VITE_SUPABASE_URL": "https://uvwahahpvmzuawwshoui.supabase.co",
+    "VITE_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV2d2FoYWhwdm16dWF3d3Nob3VpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMzMzUwNzAsImV4cCI6MjA3ODkxMTA3MH0.9omYRmzog9gzNN-s7SaKgB6OuPwfq9yJDDVB1q3DHZE",
+    "VITE_API_URL": "https://uvwahahpvmzuawwshoui.supabase.co/rest/v1"
   },
   "rewrites": [
     {
