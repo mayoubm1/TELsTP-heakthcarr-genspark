@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Supabase connection string
-DB_URL="postgresql://postgres:Maayoubm235152!?@db.vrfyjirddfdnwuffzqhb.supabase.co:5432/postgres"
+DB_URL="postgresql://postgres:Maayoubm235152!?@db.uvwahahpvmzuawwshoui.supabase.co:5432/postgres"
 
 echo "Applying Supabase migrations..."
 
